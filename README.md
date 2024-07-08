@@ -14,6 +14,13 @@ Please install [`pytorch`](https://pytorch.org/) and [`pytorch3d`](https://githu
 conda env create -f autosdf.yaml
 conda activate autosdf
 ```
+or
+install packages in an existing conda environment
+```
+conda activate 3dPrinter
+conda env update --file /data/3dPrinter/2_AutoSDF-master/autosdf.yaml
+```
+
 
 However, the environments varies by each machine. We tested the code on `Ubuntu 20.04`, `cuda=11.3`, `python=3.8.11`, `pytorch=1.9.0`, `pytorch3d=0.5.0`.
 
