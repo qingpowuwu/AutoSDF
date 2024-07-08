@@ -25,7 +25,17 @@ conda env update --file /data/3dPrinter/2_AutoSDF-master/autosdf.yaml
 However, the environments varies by each machine. We tested the code on `Ubuntu 20.04`, `cuda=11.3`, `python=3.8.11`, `pytorch=1.9.0`, `pytorch3d=0.5.0`.
 
 # Demo
-We provide a jupyter notebook for demo. First download the pretrained weights from [this link](https://drive.google.com/drive/folders/1n8W_8CfQ7uZDYNrv487sd0oyhRoNLfGo?usp=sharing), and put them under `saved_ckpt`. Then start the notebook server with
+We provide a jupyter notebook for demo. First download the pretrained weights from [this link](https://drive.google.com/drive/folders/1n8W_8CfQ7uZDYNrv487sd0oyhRoNLfGo?usp=sharing), and put them under `saved_ckpt`. 
+
+可以在 linux 上 先 pip install gdown, 然后运行:
+```
+gdown https://drive.google.com/uc?id=1Zy-L9ADw2h4nWJG4QmaWhALk1Cpe1jw8
+gdown https://drive.google.com/uc?id=1clfH8AfX90bIxxFw7sHYK-u0aWuahE_f
+gdown https://drive.google.com/uc?id=1IzEXuUiE4nt8axizxZK2w7XBp5qq0RyE
+gdown https://drive.google.com/uc?id=1ZH3JMGXcO-C8Gp3iTgzmt4Ig8bpgQmCv
+```
+
+Then start the notebook server with
 ```
 jupyter notebook
 ```
