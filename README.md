@@ -64,6 +64,11 @@ wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_
 
 The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
+我下载到了 /data/3dPrinter/0_Dataset_Ori/3_AutoSDF_Datasets/pix3d
+
+![Uploading Screenshot 2024-07-10 at 3.04.35 PM.png…]()
+
+
 # Training
 1. First train the `P-VQ-VAE` on `ShapeNet`:
 ```
