@@ -49,6 +49,12 @@ And run:
 
 First you need to download the `ShapeNetCore.v1` following the instruction of `https://www.shapenet.org/account/`. Put them under `data/ShapeNet`. Then unzip the downloaded zip file. We assume the path to the unzipped folder is `data/ShapeNet/ShapeNetCore.v1`. To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py).
 
+在 terminal 里面运行
+
+```
+wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_benchmark_v0.zip --no-check-certificate
+```
+
 2. [Pix3D](https://github.com/xingyuansun/pix3d)
 
 The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
