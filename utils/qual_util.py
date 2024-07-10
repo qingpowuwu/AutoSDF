@@ -271,10 +271,9 @@ def load_bert2vq_model(opt):
     from models.networks.bert2vq_net import BERT2VQ
     
     net = BERT2VQ(opt)
-    # bert2vq_ckpt = '/home/paritosh/Desktop/Capstone/clean-code/generative_transformers/logs/bert2vq-shapenet_lang-all-LR1e-4-cleanCode-langMode-/ckpt/bert2vq_epoch-145.pth'
     bert2vq_ckpt = 'saved_ckpt/bert2vq_epoch-145.pth'
     state_dict = torch.load(bert2vq_ckpt)
-    net.load_state_dict(state_dict['bert2vq'])
+    net.load_state_dict(state_dict['bert2vq'], strict=False)
     net.eval()
     net.to(opt.device)
     
