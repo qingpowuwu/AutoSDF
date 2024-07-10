@@ -74,8 +74,13 @@ The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
 # Training
 1. First train the `P-VQ-VAE` on `ShapeNet`:
+
+把 /data/3dPrinter/3_AutoSDF-master/configs/paths.py 里面的 变量 dataroot = "/path/to/your/data/root" 换成 自己的 数据集所在的位置，例如：`dataroot = "/path/to/your/data/root"`
+
+
+
 ```
-./launchers/train_pvqvae_snet.sh
+bash ./launchers/train_pvqvae_snet.sh
 ```
 
 2. Then extract the code for each sample of ShapeNet (caching them for training the transformer):
