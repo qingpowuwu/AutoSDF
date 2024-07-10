@@ -1,4 +1,4 @@
-<img width="408" alt="Screenshot 2024-07-10 at 3 07 50 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/3d0df8fd-2600-4c84-91d4-0c08c7e2a702"># AutoSDF: Shape Priors for 3D Completion, Reconstruction and Generation
+# AutoSDF: Shape Priors for 3D Completion, Reconstruction and Generation
 [[`arXiv`](https://arxiv.org/abs/2203.09516)]
 [[`Project Page`](https://yccyenchicheng.github.io/AutoSDF/)]
 [[`BibTex`](#citation)]
