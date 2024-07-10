@@ -8,6 +8,7 @@ Code release for the CVPR 2022 paper "AutoSDF: Shape Priors for 3D Completion, R
 https://user-images.githubusercontent.com/27779063/159215086-6889da7c-07c6-4909-b51f-bc04364072cf.mp4
 
 
+
 # Installation
 Please install [`pytorch`](https://pytorch.org/) and [`pytorch3d`](https://github.com/facebookresearch/pytorch3d). Or you can setup the environment using `conda`:
 
@@ -59,6 +60,7 @@ wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_
 加压后的文件如下：
 
 ![image](https://github.com/qingpowuwu/AutoSDF/assets/140480316/f41ea629-2c6e-4b3d-bea2-bcb0acdb8c43)
+<img width="408" alt="Screenshot 2024-07-10 at 3 13 49 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/4b065890-8a04-4b54-b7ce-9b401f4ac495">
 
 
 2. [Pix3D](https://github.com/xingyuansun/pix3d)
