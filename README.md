@@ -107,6 +107,28 @@ pip install PyMCubes
 ```
 and replace all the lines `import marching_cubes as mcubes` in our code with `import mcubes`. 
 
+我的做法是：下载 skimage 之后， 把 `import marching_cubes as mcubes` 都替换成 from skimage import measure 
+
+之后再 把 `mcubes.marching_cubes` 替换成 measure.marching_cubes
+
+## 2. 找不到 ./preprocess/isosurface/computeDistanceField  文件夹
+
+得到 Bugs:
+
+```
+[*] creating tmp/for_sdf/sdf/chair_model/isosurf.sdf
+[*] trimesh_load: demo_data/chair_model.obj
+[*] export_mesh:  tmp/for_sdf/norm_mesh/chair_model/pc_norm.obj
+[*] command: ./preprocess/isosurface/computeDistanceField tmp/for_sdf/norm_mesh/chair_model/pc_norm.obj 256 256 256 -s  -e 1.3 -o 0.dist -m 1 -c
+[*] command: mv 0.dist tmp/for_sdf/sdf/chair_model/isosurf.sdf
+sh: ./preprocess/isosurface/computeDistanceField: No such file or directory
+mv: cannot stat '0.dist': No such file or directory
+```
+
+解决办法：
+
+访问 https://github.com/Xharlie/DISN/tree/master/isosurface 然后复制到 .preprocess 目录下即可
+
 # <a name="citation"></a>Citing AutoSDF
 
 If you find this code helpful, please consider citing:
