@@ -55,6 +55,11 @@ First you need to download the `ShapeNetCore.v1` following the instruction of `h
 wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_benchmark_v0.zip --no-check-certificate
 ```
 
+加压后的文件如下：
+
+![image](https://github.com/qingpowuwu/AutoSDF/assets/140480316/f41ea629-2c6e-4b3d-bea2-bcb0acdb8c43)
+
+
 2. [Pix3D](https://github.com/xingyuansun/pix3d)
 
 The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
