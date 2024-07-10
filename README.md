@@ -1,4 +1,4 @@
-# AutoSDF: Shape Priors for 3D Completion, Reconstruction and Generation
+<img width="408" alt="Screenshot 2024-07-10 at 3 07 50 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/3d0df8fd-2600-4c84-91d4-0c08c7e2a702"># AutoSDF: Shape Priors for 3D Completion, Reconstruction and Generation
 [[`arXiv`](https://arxiv.org/abs/2203.09516)]
 [[`Project Page`](https://yccyenchicheng.github.io/AutoSDF/)]
 [[`BibTex`](#citation)]
@@ -6,6 +6,7 @@
 Code release for the CVPR 2022 paper "AutoSDF: Shape Priors for 3D Completion, Reconstruction and Generation".
 
 https://user-images.githubusercontent.com/27779063/159215086-6889da7c-07c6-4909-b51f-bc04364072cf.mp4
+
 
 # Installation
 Please install [`pytorch`](https://pytorch.org/) and [`pytorch3d`](https://github.com/facebookresearch/pytorch3d). Or you can setup the environment using `conda`:
@@ -66,7 +67,7 @@ The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
 我下载到了 /data/3dPrinter/0_Dataset_Ori/3_AutoSDF_Datasets/pix3d
 
-![Uploading Screenshot 2024-07-10 at 3.04.35 PM.png…]()
+<img width="408" alt="Screenshot 2024-07-10 at 3 08 11 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/50c904cd-bac6-4005-9b74-782560300338">
 
 
 # Training
