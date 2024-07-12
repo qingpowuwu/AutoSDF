@@ -47,23 +47,35 @@ And run:
 - `demo-lang-conditional.ipynb` for language-guided generation
 
 # Preparing the Data
-## 1. 下载 `ShapeNetCore.v1` 数据集 [ShapeNet](https://www.shapenet.org)
+## 1. 下载 `ShapeNetCore.v1` 数据集 from [ShapeNet](https://www.shapenet.org)
 
-First you need to download the `ShapeNetCore.v1` following the instruction of `https://www.shapenet.org/account/`. Put them under `data/ShapeNet`. Then unzip the downloaded zip file. We assume the path to the unzipped folder is `data/ShapeNet/ShapeNetCore.v1`. To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py).
+* 直接百度云 下载 `ShapeNetCore.v1` 
+    ```
+    链接：https://pan.baidu.com/s/1WnJIAk4slq99GzE08dELqA 
+    提取码：aic6 
+    ```
+* Put `ShapeNetCore.v1.zip` under `data/ShapeNet`, 之后解压缩这个文件，通过运行:
+  * ```
+    #!/bin/bash
 
- 在 terminal 里面运行
-
-```
-wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_benchmark_v0.zip --no-check-certificate
-```
-
-加压后的文件如下：
-
-![image](https://github.com/qingpowuwu/AutoSDF/assets/140480316/f41ea629-2c6e-4b3d-bea2-bcb0acdb8c43)
-<img width="408" alt="Screenshot 2024-07-10 at 3 13 49 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/4b065890-8a04-4b54-b7ce-9b401f4ac495">
+    # 目标目录
+    TARGET_DIR="/data/3dPrinter/0_Dataset_Ori/4_DISN_Datasets/1_Downloaded/ShapeNetCore.v1"
+    
+    # 查找并解压所有 .zip 文件
+    find "$TARGET_DIR" -name "*.zip" -exec unzip -o -d "$TARGET_DIR" {} \;
+    ``` 
+* We assume the path to the unzipped folder is `data/ShapeNet/ShapeNetCore.v1`.
+<img width="374" alt="Screenshot 2024-07-13 at 1 05 33 AM" src="https://github.com/user-attachments/assets/a1d2f78a-d30f-4ce0-919f-63549b65d354">
 
 
-## 2. [Pix3D](https://github.com/xingyuansun/pix3d)
+  
+## 2. 提取 `ShapeNetCore.v1` 数据集 的 SDF values
+* To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py).
+
+解压缩后的文件如下：
+
+
+## 3. 下载 Pix3D 数据集 from [Pix3D](https://github.com/xingyuansun/pix3d)
 
 The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
