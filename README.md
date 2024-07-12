@@ -47,11 +47,11 @@ And run:
 - `demo-lang-conditional.ipynb` for language-guided generation
 
 # Preparing the Data
-1. [ShapeNet](https://www.shapenet.org)
+## 1. 下载 `ShapeNetCore.v1` 数据集 [ShapeNet](https://www.shapenet.org)
 
 First you need to download the `ShapeNetCore.v1` following the instruction of `https://www.shapenet.org/account/`. Put them under `data/ShapeNet`. Then unzip the downloaded zip file. We assume the path to the unzipped folder is `data/ShapeNet/ShapeNetCore.v1`. To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py).
 
-在 terminal 里面运行
+ 在 terminal 里面运行
 
 ```
 wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_benchmark_v0.zip --no-check-certificate
@@ -63,7 +63,7 @@ wget https://shapenet.cs.stanford.edu/ericyi/shapenetcore_partanno_segmentation_
 <img width="408" alt="Screenshot 2024-07-10 at 3 13 49 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/4b065890-8a04-4b54-b7ce-9b401f4ac495">
 
 
-2. [Pix3D](https://github.com/xingyuansun/pix3d)
+## 2. [Pix3D](https://github.com/xingyuansun/pix3d)
 
 The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
@@ -73,6 +73,7 @@ The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
 
 # Training
+
 1. First train the `P-VQ-VAE` on `ShapeNet`:
 
 把 /data/3dPrinter/3_AutoSDF-master/configs/paths.py 里面的 变量 dataroot = "/path/to/your/data/root" 换成 自己的 数据集所在的位置，例如：`dataroot = "/path/to/your/data/root"`
