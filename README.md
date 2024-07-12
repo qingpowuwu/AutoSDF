@@ -91,24 +91,23 @@ The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 把 /data/3dPrinter/3_AutoSDF-master/configs/paths.py 里面的 变量 dataroot = "/path/to/your/data/root" 换成 自己的 数据集所在的位置，例如：`dataroot = "/path/to/your/data/root"`
 
 
-
 ```
-bash ./launchers/train_pvqvae_snet.sh
+bash ./launchers/1_train_pvqvae_snet.sh
 ```
 
 2. Then extract the code for each sample of ShapeNet (caching them for training the transformer):
 ```
-./launchers/extract_pvqvae_snet.sh
+./launchers/2_extract_pvqvae_snet.sh
 ```
 
 3. Train the random-order-transformer to learn the shape prior:
 ```
-./launchers/train_rand_tf_snet_code.sh
+./launchers/3_train_rand_tf_snet_code.sh
 ```
 
 4. To train the image marginal on Pix3D, first extract the code for each training data of Pix3D
 ```
-./launchers/extract_pvqvae_pix3d.sh
+./launchers/4_extract_pvqvae_pix3d.sh
 ```
 
 5. Train the image marginal on Pix3D
