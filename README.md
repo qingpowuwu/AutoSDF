@@ -75,14 +75,16 @@ And run:
 
 解压缩后的文件如下：
 
-<img width="818" alt="image" src="https://github.com/user-attachments/assets/d0afdb27-3847-41eb-a98e-e7cc51872719">
+<img width="1437" alt="image" src="https://github.com/user-attachments/assets/f8396343-ba3f-467b-8bf1-c1a72a38fe8e">
+
+* NB. 有一点要注意的是，从 https://drive.google.com/file/d/1cHDickPLKLz3smQNpOGXD2W5mkXcy1nq/view 下载的是 32x32x32 (因为 32768 = 32x32x32)的，但是 AutoSDF 里面用的是 64x64x64 所以会发生 shape 不匹配的问题!!!!
 
 * 创建 symlink 来 link `ShapeNetCore.v1`  到 `data/ShapeNet`, 通过运行脚本 `scripts/2_link_ShapeNetCore_V1-SDF.sh`
 
 
     <img width="1228" alt="image" src="https://github.com/user-attachments/assets/d0c90a0c-07a8-46e7-b7ab-62c393ecdd3a">
 
-* NB. 有一点要注意的是，从 https://drive.google.com/file/d/1cHDickPLKLz3smQNpOGXD2W5mkXcy1nq/view 下载的是 32x32x32的，但是 AutoSDF 里面用的是 64x64x64 所以会发生 shape 不匹配的问题!!!!
+
 
 ## 3. 下载 Pix3D 数据集 from [Pix3D](https://github.com/xingyuansun/pix3d)
 
