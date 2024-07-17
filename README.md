@@ -61,17 +61,28 @@ And run:
     find "$TARGET_DIR" -name "*.zip" -exec unzip -o -d "$TARGET_DIR" {} \;
     ```
     <img width="374" alt="Screenshot 2024-07-13 at 1 05 33 AM" src="https://github.com/user-attachments/assets/a1d2f78a-d30f-4ce0-919f-63549b65d354">
+    
 * 创建 symlink 来 link `ShapeNetCore.v1`  到 `data/ShapeNet`, 通过运行脚本 `scripts/1_link_ShapeNetCore_V1.sh`
 
-  <img width="919" alt="image" src="https://github.com/user-attachments/assets/b3d3f193-d9f3-4593-a48f-fd43ad079dd1">
+    <img width="1251" alt="image" src="https://github.com/user-attachments/assets/c6bf3f3a-f3cb-4c4d-8a41-5434560f73f9">
+
+从 https://github.com/laughtervv/DISN/tree/f8206adb45f8a0714eaefcae8433337cd562b82a/data/filelists 下载 filelists 文件夹 并且放到 TARGET_DIR or /data/3dPrinter/3_AutoSDF-master/data/ShapeNet/ShapeNetCore.v1 下面 (这个文件夹里面的文件，主要是用来指定哪些文件用来 train, 哪些文件用来做 eval) => 这个文件会在 datasets/snet_dataset.py 里面用到
 
 
 ## 2. 提取 `ShapeNetCore.v1` 数据集 的 SDF values
+
 * To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py), 可以通过 https://drive.google.com/file/d/1cHDickPLKLz3smQNpOGXD2W5mkXcy1nq/view 下载 (Source: https://github.com/Xharlie/DISN)
 
 解压缩后的文件如下：
+
 <img width="818" alt="image" src="https://github.com/user-attachments/assets/d0afdb27-3847-41eb-a98e-e7cc51872719">
 
+* 创建 symlink 来 link `ShapeNetCore.v1`  到 `data/ShapeNet`, 通过运行脚本 `scripts/2_link_ShapeNetCore_V1-SDF.sh`
+
+
+    <img width="1228" alt="image" src="https://github.com/user-attachments/assets/d0c90a0c-07a8-46e7-b7ab-62c393ecdd3a">
+
+* NB. 有一点要注意的是，从 https://drive.google.com/file/d/1cHDickPLKLz3smQNpOGXD2W5mkXcy1nq/view 下载的是 32x32x32的，但是 AutoSDF 里面用的是 64x64x64 所以会发生 shape 不匹配的问题!!!!
 
 ## 3. 下载 Pix3D 数据集 from [Pix3D](https://github.com/xingyuansun/pix3d)
 
@@ -131,11 +142,16 @@ The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 ```
 bash ./launchers/1_train_pvqvae_snet.sh
 ```
+* 这个脚本会运行 train.py 文件, 这个文件会从 `from configs.paths import dataroot` 中读取 `dataroot`
+  
+<img width="1548" alt="image" src="https://github.com/user-attachments/assets/053d6d72-9fcb-4d60-9d2d-36dae296ed24">
 
 2. Then extract the code for each sample of ShapeNet (caching them for training the transformer):
 ```
 ./launchers/2_extract_pvqvae_snet.sh
 ```
+
+
 
 3. Train the random-order-transformer to learn the shape prior:
 ```
