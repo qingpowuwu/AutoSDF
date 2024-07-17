@@ -12,11 +12,7 @@ https://user-images.githubusercontent.com/27779063/159215086-6889da7c-07c6-4909-
 # Installation
 Please install [`pytorch`](https://pytorch.org/) and [`pytorch3d`](https://github.com/facebookresearch/pytorch3d). Or you can setup the environment using `conda`:
 
-```
-conda env create -f autosdf.yaml
-conda activate autosdf
-```
-or
+
 install packages in an existing conda environment
 ```
 conda activate 3dPrinter
@@ -49,48 +45,89 @@ And run:
 # Preparing the Data
 ## 1. 下载 `ShapeNetCore.v1` 数据集 from [ShapeNet](https://www.shapenet.org)
 
-* 直接百度云 下载 `ShapeNetCore.v1` 
+* 直接百度云 下载 `ShapeNetCore.v1.zip` 
     ```
     链接：https://pan.baidu.com/s/1WnJIAk4slq99GzE08dELqA 
     提取码：aic6 
     ```
-* Put `ShapeNetCore.v1.zip` under `data/ShapeNet`, 之后解压缩这个文件，通过运行:
+* 之后解压缩这个文件&放到`TARGET_DIR` 下面，通过运行:
   * ```
     #!/bin/bash
 
     # 目标目录
-    TARGET_DIR="/data/3dPrinter/0_Dataset_Ori/4_DISN_Datasets/1_Downloaded/ShapeNetCore.v1"
+    TARGET_DIR="/data/3dPrinter/0_Dataset_Ori/4_DISN_Datasets/1_Downloaded/ShepeNet/ShapeNetCore_v1"
     
     # 查找并解压所有 .zip 文件
     find "$TARGET_DIR" -name "*.zip" -exec unzip -o -d "$TARGET_DIR" {} \;
-    ``` 
-* We assume the path to the unzipped folder is `data/ShapeNet/ShapeNetCore.v1`.
-<img width="374" alt="Screenshot 2024-07-13 at 1 05 33 AM" src="https://github.com/user-attachments/assets/a1d2f78a-d30f-4ce0-919f-63549b65d354">
+    ```
+    <img width="374" alt="Screenshot 2024-07-13 at 1 05 33 AM" src="https://github.com/user-attachments/assets/a1d2f78a-d30f-4ce0-919f-63549b65d354">
+* 创建 symlink 来 link `ShapeNetCore.v1`  到 `data/ShapeNet`, 通过运行脚本 `scripts/1_link_ShapeNetCore_V1.sh`
+
+  <img width="919" alt="image" src="https://github.com/user-attachments/assets/b3d3f193-d9f3-4593-a48f-fd43ad079dd1">
 
 
-  
 ## 2. 提取 `ShapeNetCore.v1` 数据集 的 SDF values
-* To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py).
+* To extract SDF values, we followed the [preprocessing steps from DISN](https://github.com/laughtervv/DISN/blob/master/preprocessing/create_point_sdf_grid.py), 可以通过 https://drive.google.com/file/d/1cHDickPLKLz3smQNpOGXD2W5mkXcy1nq/view 下载 (Source: https://github.com/Xharlie/DISN)
 
 解压缩后的文件如下：
+<img width="818" alt="image" src="https://github.com/user-attachments/assets/d0afdb27-3847-41eb-a98e-e7cc51872719">
 
 
 ## 3. 下载 Pix3D 数据集 from [Pix3D](https://github.com/xingyuansun/pix3d)
 
 The Pix3D dataset can be downloaded here: https://github.com/xingyuansun/pix3d.
 
-我下载到了 /data/3dPrinter/0_Dataset_Ori/3_AutoSDF_Datasets/pix3d
+我下载到了 /data/3dPrinter/0_Dataset_Ori/4_DISN_Datasets/1_Downloaded/pix3d
 
-<img width="408" alt="Screenshot 2024-07-10 at 3 08 11 PM" src="https://github.com/qingpowuwu/AutoSDF/assets/140480316/50c904cd-bac6-4005-9b74-782560300338">
+<img width="1015" alt="image" src="https://github.com/user-attachments/assets/385a0ae1-60b6-43fc-8d85-c378efc401cf">
 
+* Pix3D 数据主要是用来完成 Exp2: Single View Generation, 这个数据集含有 img/class/xxx.png, mask/class/xxx.png, model/class/xxx/model.obj ...，一共有9类。
+
+    ```
+    pix3d
+    ├── img (不同的 2d-image)
+    │   ├── class1
+    │   │   ├── 0001.png
+    │   │   ├── 0002.png
+    │   │   ├── ...
+    │   ├── class2
+    │   ├── ...
+    │   ├── ...
+    │   └── class9
+    │       ├── 0001.png
+    │       ├── 0002.png
+    │       ├── ...
+    ├── mask (不同的 2d-image 的mask)
+    │   ├── class1
+    │   │   ├── 0001.png
+    │   │   ├── 0002.png
+    │   ├── class2
+    │   ├── ...
+    │   ├── ...
+    │   └── class9
+    │       ├── 0001.png
+    │       ├── 0002.png
+    │       ├── ...
+    └── model (不同的 model.obj)
+        ├── class1 (父类)
+        │   └── xxx (子类)
+        │       ├── model.obj
+        │       ├── 3d_keypoints.txt
+        │       ├── voxel.mat
+        │       └── xxx.mtl
+        ├── class2
+        ├── ...
+        ├── ...
+        └── class9
+    ```
 
 # Training
 
 1. First train the `P-VQ-VAE` on `ShapeNet`:
 
-把 /data/3dPrinter/3_AutoSDF-master/configs/paths.py 里面的 变量 dataroot = "/path/to/your/data/root" 换成 自己的 数据集所在的位置，例如：`dataroot = "/path/to/your/data/root"`
+    把 /data/3dPrinter/3_AutoSDF-master/configs/paths.py 里面的 变量 dataroot = "/path/to/your/data/root" 换成 自己的 数据集所在的位置，例如：`dataroot = "/path/to/your/data/root"`
 
-
+然后运行脚本：
 ```
 bash ./launchers/1_train_pvqvae_snet.sh
 ```
